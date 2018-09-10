@@ -20,7 +20,7 @@ namespace Microsoft.Azure.Amqp
 #if DEBUG
         public static Action<string> TraceCallback;
 #if !PCL
-        static bool AmqpDebug = string.Equals(Environment.GetEnvironmentVariable("AMQP_DEBUG"), "1", StringComparison.Ordinal);
+        static bool AmqpDebug = true; // string.Equals(Environment.GetEnvironmentVariable("AMQP_DEBUG"), "1", StringComparison.Ordinal);
 #else
         static bool AmqpDebug = false;
 #endif

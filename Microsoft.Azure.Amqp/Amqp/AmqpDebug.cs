@@ -22,31 +22,21 @@ namespace Microsoft.Azure.Amqp
     /// </summary>
     static class AmqpDebug
     {
-        [Conditional("AMQP_DEBUG")]
         public static void Log(object source, bool send, Performative command)
         {
-#if AMQP_DEBUG
             AmqpDebugImpl.Log(source, send, command);
-#endif
         }
 
-        [Conditional("AMQP_DEBUG")]
         public static void Log(object source, bool send, ulong code, uint p1, uint p2)
         {
-#if AMQP_DEBUG
             AmqpDebugImpl.Log(source, send, code, p1, p2);
-#endif
         }
 
-        [Conditional("AMQP_DEBUG")]
         public static void Dump(object source)
         {
-#if AMQP_DEBUG
             AmqpDebugImpl.Dump(source);
-#endif
         }
 
-#if AMQP_DEBUG
         struct Entry
         {
             public long Ticks;
@@ -183,6 +173,5 @@ namespace Microsoft.Azure.Amqp
                 }
             }
         }
-#endif
     }
 }
